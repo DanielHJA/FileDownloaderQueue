@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
-class BaseTableviewViewController<T: Codable, C: BaseTableViewCell<T>>: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class BaseTableviewViewController<T: NSManagedObject, C: BaseTableViewCell<T>>: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    private lazy var barButtonItem: UIBarButtonItem = {
-        let temp = UIBarButtonItem(title: "Details", style: .plain, target: self, action: #selector(encodeItems))
-        return temp
-    }()
+//    private lazy var barButtonItem: UIBarButtonItem = {
+//        let temp = UIBarButtonItem(title: "Details", style: .plain, target: self, action: #selector(encodeItems))
+//        return temp
+//    }()
     
     var items = [T]()
     
@@ -33,14 +34,14 @@ class BaseTableviewViewController<T: Codable, C: BaseTableViewCell<T>>: UIViewCo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = barButtonItem
+//        navigationItem.rightBarButtonItem = barButtonItem
         registerCells()
     }
     
-    @objc private func encodeItems() {
-        let json = items.encode()
-        print(json.toJson())
-    }
+//    @objc private func encodeItems() {
+//        let json = items.encode()
+//        print(json.toJson())
+//    }
     
     func reload() {
         tableView.reloadData()

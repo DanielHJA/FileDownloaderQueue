@@ -17,9 +17,9 @@ class DownloadOperationsManager: NSObject {
         return temp
     }()
 
-    func createDownloadTaskForURL(_ object: Download, completion: @escaping (DownloadOperation) -> Void) {
+    func createDownloadTaskForURL(_ cell: DownloadTableViewCell, _ object: DownloadObject, completion: @escaping (DownloadOperation) -> Void) {
         let downloader = FileDownloader(object)
-        downloader.delegate = object
+        downloader.delegate = cell
         let operation = DownloadOperation(downloader)
         completion(operation)
     }

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreData
 
-class BaseTableViewCell<T: Decodable>: UITableViewCell {
+class BaseTableViewCell<T: NSManagedObject>: UITableViewCell {
     
     var object: T!
     

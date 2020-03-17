@@ -8,11 +8,15 @@
 
 import UIKit
 
-class ViewController: BaseTableviewViewController<Download, DownloadTableViewCell> {
+class ViewController: BaseTableviewViewController<DownloadObject, DownloadTableViewCell> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        items = MockData.mockDownloads
+//        items = MockData.mockDownloads
+        Core.shared.fetch(DownloadObject.self) { (objects) in
+            self.items = objects
+        }
+        
         reload()
     }
     

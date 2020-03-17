@@ -20,7 +20,7 @@ class FileDownloader: NSObject, URLSessionDelegate, URLSessionDownloadDelegate {
     
     weak var finishDelegate: FileDownloaderFinishDelegate?
     weak var delegate: FileDownloaderDelegate?
-    weak var object: Download?
+    weak var object: DownloadObject?
     
     private var session: URLSession?
     private var downloadTask: URLSessionDownloadTask?
@@ -29,11 +29,11 @@ class FileDownloader: NSObject, URLSessionDelegate, URLSessionDownloadDelegate {
         return temp
     }
     
-    required init(_ object: Download) {
+    required init(_ object: DownloadObject) {
         super.init()
-        guard let url = object.url else { return }
+        guard let url = object.downloadURL else { return }
         self.object = object
-        let request = URLRequest(url: url)
+        let request = URLRequest(url: url) 
         session = URLSession(configuration: configuration, delegate: self, delegateQueue: OperationQueue.current)
         downloadTask = session?.downloadTask(with: request)
     }
@@ -41,21 +41,26 @@ class FileDownloader: NSObject, URLSessionDelegate, URLSessionDownloadDelegate {
     func resumeDownloadTask() {
         setResumeDataIfExist()
         object?.isRunning = true
+        object?.save()
         downloadTask?.resume()
     }
     
     private func setResumeDataIfExist() {
-        guard let object = object else { return }
-        if let resumeData = Storage.shared.fetchResumeDataForFile(object.name) {
+        guard let object = object, let name = object.name else { return }
+        
+        if let resumeData = Storage.shared.fetchResumeDataForFile(name) {
             downloadTask = session?.downloadTask(withResumeData: resumeData)
         }
+        //        if let resumeData = object.resumeData as? Data {
+        //            downloadTask = session?.downloadTask(withResumeData: resumeData)
+        //        }
     }
     
     func suspendDownloadTask() {
-        guard let object = object else { return }
+        guard let object = object, let name = object.name else { return }
         object.isRunning = false
         downloadTask?.cancel(byProducingResumeData: { (data) in
-            Storage.shared.storeResumeData(data, name: object.name)
+            Storage.shared.storeResumeData(data, name: name)
         })
     }
     
@@ -64,6 +69,8 @@ class FileDownloader: NSObject, URLSessionDelegate, URLSessionDownloadDelegate {
         print(progress)
         if self.object?.isRunning ?? false {
             DispatchQueue.main.async { [weak self] in
+                self?.object?.progress = progress
+                self?.object?.save()
                 self?.delegate?.updateProgress(progress)
             }
         }
@@ -71,7 +78,7 @@ class FileDownloader: NSObject, URLSessionDelegate, URLSessionDownloadDelegate {
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         guard let object = object else { return }
-        Storage.shared.saveFileFromTemporaryLocation(location, filename: object.name)
+        Storage.shared.saveFileFromTemporaryLocation(location, filename: object.name!)
     }
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
@@ -81,71 +88,8 @@ class FileDownloader: NSObject, URLSessionDelegate, URLSessionDownloadDelegate {
         }
         print("Download completed")
         object?.isRunning = false
+        object?.save()
         finishDelegate?.downloadOperationDidFinish()
-    }
-    
-}
-
-class Storage {
-    static let shared = Storage()
-    
-    private var manager = FileManager.default
-    
-    private var defaultDirectory: URL? {
-        return manager.urls(for: .documentDirectory, in: .userDomainMask).first
-    }
-    
-    func saveFileFromTemporaryLocation(_ tempLocation: URL, filename: String) {
-        guard let defaultDirectory = defaultDirectory else { return }
-        let newLocation = defaultDirectory.appendingPathComponent(filename)
-        
-        if fileExist(filename, location: defaultDirectory) {
-            print("File exists")
-        } else {
-            do {
-                try manager.copyItem(at: tempLocation, to: newLocation)
-            } catch {
-                print(error)
-            }
-        }
-    }
-    
-    func fileExist(_ filename: String, location: URL?) -> Bool {
-        guard let filePath = location?.appendingPathComponent(filename).path else { return false }
-        return manager.fileExists(atPath: filePath)
-    }
-    
-    func fetchResumeDataForFile(_ filename: String) -> Data? {
-        guard let defaultDirectory = defaultDirectory else { return nil }
-        let resumeDataDirectoryLocation = defaultDirectory.appendingPathComponent("resumedata")
-        let resumeDataLocation = resumeDataDirectoryLocation.appendingPathComponent("\(filename).resumedata")
-        do {
-            let data = try Data(contentsOf: resumeDataLocation)
-            return data
-        } catch {
-            print(error)
-        }
-        return nil
-    }
-
-    func storeResumeData(_ data: Data?, name: String) {
-        guard let defaultDirectory = defaultDirectory else { return }
-        let resumeDataDirectoryLocation = defaultDirectory.appendingPathComponent("resumedata")
-        let resumeDataLocation = resumeDataDirectoryLocation.appendingPathComponent("\(name).resumedata")
-        
-        if fileExist("resumedata", location: defaultDirectory) {
-            do {
-                try data?.write(to: resumeDataLocation)
-            } catch {
-                print(error)
-            }
-        } else {
-            do {
-                try manager.createDirectory(at: resumeDataDirectoryLocation, withIntermediateDirectories: false, attributes: [:])
-            } catch {
-                print(error)
-            }
-        }
     }
     
 }

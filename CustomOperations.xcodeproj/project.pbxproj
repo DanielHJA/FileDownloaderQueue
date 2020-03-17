@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B89BE4F2420D0FC004BB3A0 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B89BE4E2420D0FC004BB3A0 /* Storage.swift */; };
+		7B89BE512420D1C3004BB3A0 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B89BE502420D1C3004BB3A0 /* Core.swift */; };
 		7B8F34C8241B77C700B2E95D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F34C7241B77C700B2E95D /* AppDelegate.swift */; };
 		7B8F34CA241B77C700B2E95D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F34C9241B77C700B2E95D /* SceneDelegate.swift */; };
 		7B8F34CC241B77C700B2E95D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F34CB241B77C700B2E95D /* ViewController.swift */; };
@@ -44,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B89BE4E2420D0FC004BB3A0 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		7B89BE502420D1C3004BB3A0 /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
 		7B8F34C4241B77C700B2E95D /* CustomOperations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomOperations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8F34C7241B77C700B2E95D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B8F34C9241B77C700B2E95D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				7B8F34C7241B77C700B2E95D /* AppDelegate.swift */,
+				7B89BE502420D1C3004BB3A0 /* Core.swift */,
 				7B8F350A241B82C700B2E95D /* Constants.swift */,
 				7B8F34C9241B77C700B2E95D /* SceneDelegate.swift */,
 				7B8F34CB241B77C700B2E95D /* ViewController.swift */,
@@ -125,6 +130,7 @@
 				7B8F3500241B7A1300B2E95D /* DownloadTableViewCell.swift */,
 				7B8F3504241B7AF500B2E95D /* Download.swift */,
 				7B8F350E241B8E5100B2E95D /* FileDownloader.swift */,
+				7B89BE4E2420D0FC004BB3A0 /* Storage.swift */,
 				7B8F3508241B807900B2E95D /* MockData.swift */,
 				7B8F3502241B7A5400B2E95D /* BaseTableViewCell.swift */,
 				7B8F3510241BBBCD00B2E95D /* DownloadOperation.swift */,
@@ -286,7 +292,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B8F34D2241B77C700B2E95D /* CustomOperations.xcdatamodeld in Sources */,
+				7B89BE4F2420D0FC004BB3A0 /* Storage.swift in Sources */,
 				7B8F3511241BBBCD00B2E95D /* DownloadOperation.swift in Sources */,
+				7B89BE512420D1C3004BB3A0 /* Core.swift in Sources */,
 				7B8F3505241B7AF500B2E95D /* Download.swift in Sources */,
 				7B8F34CC241B77C700B2E95D /* ViewController.swift in Sources */,
 				7B8F350D241B8E2500B2E95D /* DownloadOperationsManager.swift in Sources */,

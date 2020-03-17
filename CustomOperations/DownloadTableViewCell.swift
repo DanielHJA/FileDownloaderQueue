@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DownloadTableViewCell: BaseTableViewCell<Download>, DownloadObjectDelegate {
+class DownloadTableViewCell: BaseTableViewCell<DownloadObject>, DownloadObjectDelegate {
     
     private var operation: DownloadOperation?
     
@@ -69,10 +69,10 @@ class DownloadTableViewCell: BaseTableViewCell<Download>, DownloadObjectDelegate
         return temp
     }()
     
-    override func configure(_ object: Download) {
+    override func configure(_ object: DownloadObject) {
         super.configure(object)
         self.object = object
-        object.delegate = self
+//        object.delegate = self
         label.text = object.name
         progressView.setProgress(object.progress, animated: false)
         downloadButton.isHidden = false
@@ -96,7 +96,7 @@ class DownloadTableViewCell: BaseTableViewCell<Download>, DownloadObjectDelegate
     }
     
     private func configureDownloadTask() {
-        DownloadOperationsManager.shared.createDownloadTaskForURL(object) { (operation) in
+        DownloadOperationsManager.shared.createDownloadTaskForURL(self, object) { (operation) in
             self.operation = operation
         }
     }
@@ -109,9 +109,10 @@ class DownloadTableViewCell: BaseTableViewCell<Download>, DownloadObjectDelegate
         DownloadOperationsManager.shared.cancelOperation(operation)
     }
     
+}
+
+extension DownloadTableViewCell: FileDownloaderDelegate {
     func updateProgress(_ progress: Float) {
         progressView.setProgress(progress, animated: true)
     }
-    
 }
-

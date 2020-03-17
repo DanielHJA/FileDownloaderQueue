@@ -13,7 +13,17 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+//        for object in MockData.mockDownloads {
+//            Core.shared.create(for: DownloadObject.self) { (download) in
+//                download.name = object.name
+//                download.isRunning = false
+//                download.downloadURL = object.url
+//                download.progress = 0
+//                Core.shared.add(download)
+//            }
+//        }
+        
         return true
     }
 
