@@ -55,7 +55,6 @@ class DownloadOperation: Operation {
         downloader?.suspendDownloadTask()
         state = .finished
     }
-
     
 }
 

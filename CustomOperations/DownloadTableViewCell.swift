@@ -96,9 +96,9 @@ class DownloadTableViewCell: BaseTableViewCell<DownloadObject>, DownloadObjectDe
     }
     
     private func configureDownloadTask() {
-        DownloadOperationsManager.shared.createDownloadTaskForURL(self, object) { (operation) in
-            self.operation = operation
-        }
+        let downloader = FileDownloader(object)
+        downloader.delegate = self
+        operation = DownloadOperation(downloader)
     }
     
     private func resumeDownloadTask() {

@@ -16,13 +16,6 @@ class DownloadOperationsManager: NSObject {
         temp.maxConcurrentOperationCount = 2
         return temp
     }()
-
-    func createDownloadTaskForURL(_ cell: DownloadTableViewCell, _ object: DownloadObject, completion: @escaping (DownloadOperation) -> Void) {
-        let downloader = FileDownloader(object)
-        downloader.delegate = cell
-        let operation = DownloadOperation(downloader)
-        completion(operation)
-    }
     
     func resumeOperation(_ operation: DownloadOperation?) {
         guard let operation = operation else { return }

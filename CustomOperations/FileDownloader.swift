@@ -51,9 +51,6 @@ class FileDownloader: NSObject, URLSessionDelegate, URLSessionDownloadDelegate {
         if let resumeData = Storage.shared.fetchResumeDataForFile(name) {
             downloadTask = session?.downloadTask(withResumeData: resumeData)
         }
-        //        if let resumeData = object.resumeData as? Data {
-        //            downloadTask = session?.downloadTask(withResumeData: resumeData)
-        //        }
     }
     
     func suspendDownloadTask() {
