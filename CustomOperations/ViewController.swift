@@ -8,11 +8,21 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: BaseTableviewViewController<Download, DownloadTableViewCell> {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        items = MockData.mockDownloads
+        reload()
+    }
+    
+    override func registerCells() {
+        super.registerCells()
+        tableView.register(DownloadTableViewCell.self, forCellReuseIdentifier: "DownloadTableViewCell")
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90.0
     }
 
 
