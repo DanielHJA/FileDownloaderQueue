@@ -72,7 +72,6 @@ class DownloadTableViewCell: BaseTableViewCell<DownloadObject>, DownloadObjectDe
     override func configure(_ object: DownloadObject) {
         super.configure(object)
         self.object = object
-//        object.delegate = self
         label.text = object.name
         progressView.setProgress(object.progress, animated: false)
         downloadButton.isHidden = false
@@ -82,7 +81,6 @@ class DownloadTableViewCell: BaseTableViewCell<DownloadObject>, DownloadObjectDe
         downloadButton.removeTarget(self, action: #selector(didPressDownloadButton), for: .touchUpInside)
         downloadButton.addTarget(self, action: #selector(didPressPauseButton), for: .touchUpInside)
         downloadButton.setTitle("Pause", for: .normal)
-        object.isRunning = true
         configureDownloadTask()
         resumeDownloadTask()
     }
@@ -91,14 +89,13 @@ class DownloadTableViewCell: BaseTableViewCell<DownloadObject>, DownloadObjectDe
         downloadButton.removeTarget(self, action: #selector(didPressPauseButton), for: .touchUpInside)
         downloadButton.addTarget(self, action: #selector(didPressDownloadButton), for: .touchUpInside)
         downloadButton.setTitle("Download", for: .normal)
-        object.isRunning = false
         suspendDownloadTask()
     }
     
     private func configureDownloadTask() {
-        let downloader = FileDownloader(object)
-        downloader.delegate = self
-        operation = DownloadOperation(downloader)
+        let operation = DownloadOperationsManager.shared.createDownloadTaskForURL(object)
+        operation.downloader?.delegate = self
+        self.operation = operation
     }
     
     private func resumeDownloadTask() {
