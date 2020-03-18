@@ -75,7 +75,7 @@ class FileDownloader: NSObject, URLSessionDelegate, URLSessionDownloadDelegate {
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         guard let object = object else { return }
-        Storage.shared.saveFileFromTemporaryLocation(location, filename: object.name!)
+        Storage.shared.saveFileFromTemporaryLocation(location, object: object)
     }
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
@@ -85,6 +85,7 @@ class FileDownloader: NSObject, URLSessionDelegate, URLSessionDownloadDelegate {
         }
         print("Download completed")
         object?.isRunning = false
+        object?.finished = true
         object?.save()
         finishDelegate?.downloadOperationDidFinish()
     }

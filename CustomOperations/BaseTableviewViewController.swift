@@ -11,11 +11,6 @@ import CoreData
 
 class BaseTableviewViewController<T: NSManagedObject, C: BaseTableViewCell<T>>: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-//    private lazy var barButtonItem: UIBarButtonItem = {
-//        let temp = UIBarButtonItem(title: "Details", style: .plain, target: self, action: #selector(encodeItems))
-//        return temp
-//    }()
-    
     var items = [T]()
     
     private(set) lazy var tableView: UITableView = {
@@ -34,14 +29,11 @@ class BaseTableviewViewController<T: NSManagedObject, C: BaseTableViewCell<T>>: 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        navigationItem.rightBarButtonItem = barButtonItem
         registerCells()
+        NotificationCenter.default.addObserver(self, selector: #selector(fetchObjects), name: NSNotification.Name("DownloadDidFinish"), object: nil)
     }
     
-//    @objc private func encodeItems() {
-//        let json = items.encode()
-//        print(json.toJson())
-//    }
+    @objc func fetchObjects() { }
     
     func reload() {
         tableView.reloadData()
@@ -74,29 +66,4 @@ class BaseTableviewViewController<T: NSManagedObject, C: BaseTableViewCell<T>>: 
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-}
-
-extension Encodable {
-    func encode() -> Data? {
-        let encoder = JSONEncoder()
-        do {
-            let data = try encoder.encode(self)
-            return data
-        } catch let error {
-            print(error)
-        }
-        return nil
-    }
-}
-
-extension Array where Element : Codable {
-    func encode() -> [Data] {
-        return compactMap { $0.encode() }
-    }
-}
-
-extension Array where Element == Data {
-    func toJson() -> [String] {
-        return compactMap { String(data: $0, encoding: .utf8) }
-    }
 }

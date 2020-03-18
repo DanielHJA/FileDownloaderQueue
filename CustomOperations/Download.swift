@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum FileType: String, Decodable {
+    case zip
+    case pdf
+}
+
 protocol DownloadObjectDelegate: class {
     func updateProgress(_ progress: Float)
 }
@@ -16,14 +21,18 @@ class Download: Codable {
     
     weak var delegate: DownloadObjectDelegate?
     
+    let id: String
     let name: String
+    let type: FileType
     let url: URL?
     var progress: Float = 0
     var isRunning: Bool = false
     var resumeData: Data?
     
     private enum CodingKeys: String, CodingKey {
+        case id = "id"
         case name = "name"
+        case type = "type"
         case url = "url"
         case progress = "progress"
         case isRunning = "isRunning"
@@ -32,11 +41,10 @@ class Download: Codable {
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(String.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
+        type = try container.decode(FileType.self, forKey: .type)
         url = try container.decode(URL.self, forKey: .url)
-        progress = try container.decode(Float.self, forKey: .progress)
-        isRunning = try container.decode(Bool.self, forKey: .isRunning)
-        resumeData = try container.decode(Data.self, forKey: .resumeData)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -48,10 +56,11 @@ class Download: Codable {
         try container.encode(resumeData, forKey: .resumeData)
     }
     
-    init(name: String, url: URL?, progress: Float = 0) {
+    init(id: String, name: String, type: FileType, url: URL?) {
+        self.id = id
         self.name = name
+        self.type = type
         self.url = url
-        self.progress = progress
     }
     
 }

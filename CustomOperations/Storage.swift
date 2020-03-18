@@ -17,9 +17,10 @@ class Storage {
         return manager.urls(for: .documentDirectory, in: .userDomainMask).first
     }
     
-    func saveFileFromTemporaryLocation(_ tempLocation: URL, filename: String) {
-        guard let defaultDirectory = defaultDirectory else { return }
-        let newLocation = defaultDirectory.appendingPathComponent(filename)
+    func saveFileFromTemporaryLocation(_ tempLocation: URL, object: DownloadObject) {
+        guard let defaultDirectory = defaultDirectory, let name = object.name, let type = object.type else { return }
+        print(defaultDirectory)
+        let newLocation = defaultDirectory.appendingPathComponent("\(name).\(type)")
         
         do {
             try manager.copyItem(at: tempLocation, to: newLocation)

@@ -60,6 +60,7 @@ class DownloadOperation: Operation {
 
 extension DownloadOperation: FileDownloaderFinishDelegate { 
     func downloadOperationDidFinish() {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DownloadDidFinish"), object: nil)
         self.state = .finished
     }
 }

@@ -21,11 +21,11 @@ class Core: NSObject {
     lazy var context: NSManagedObjectContext = {
         return appDelegate.persistentContainer.viewContext
     }()
-
-    func create<T: NSManagedObject>(for type: T.Type, completion: @escaping (T) -> Void) {
-        guard let entityDescription = type.entityDescription else { return }
+    
+    func create<T: NSManagedObject>() -> T? {
+        guard let entityDescription = T.entityDescription else { return nil }
         let object = T(entity: entityDescription, insertInto: context)
-        completion(object)
+        return object
     }
     
     func add(_ object: NSManagedObject) {
@@ -33,15 +33,47 @@ class Core: NSObject {
         saveContext()
     }
     
-    func fetch<T: NSManagedObject>(_ entity: T.Type, completion: @escaping ([T]) -> Void) {
+    func fetch<T: NSManagedObject>(_ entity: T.Type, predicate: NSPredicate?, completion: @escaping ([T]) -> Void) {
         let request = NSFetchRequest<T>(entityName: entity.entityName)
         request.returnsObjectsAsFaults = false
+        request.predicate = predicate
         
         do {
             let results = try context.fetch(request)
             completion(results)
         } catch {
             print(error)
+        }
+    }
+    
+    func objectExist<T: NSManagedObject>(_ type: T.Type, object: Download) -> Bool {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: T.entityName)
+        request.includesSubentities = false
+        let predicate = NSPredicate(format: "id = %@", object.id)
+        request.predicate = predicate
+
+        do {
+            let count = try context.count(for: request)
+            return count > 0
+        } catch {
+            print(error)
+            return false
+        }
+    }
+    
+    func convertDownloadsToCoreObjects(_ downloads: [Download]) {
+        downloads.forEach {
+            if !objectExist(DownloadObject.self, object: $0) {
+                if let downloadObject: DownloadObject = Core.shared.create() {
+                    downloadObject.id = $0.id
+                    downloadObject.name = $0.name
+                    downloadObject.downloadURL = $0.url
+                    downloadObject.progress = $0.progress
+                    downloadObject.type = $0.type.rawValue
+                    downloadObject.finished = false
+                    Core.shared.add(downloadObject)
+                }
+            }
         }
     }
     
@@ -56,27 +88,6 @@ class Core: NSObject {
         } catch {
             print(error)
         }
-    }
-    
-    func update(completion: @escaping () -> Void) {
-        
-    }
-    
-    
-}
-
-extension NSManagedObject {
-    
-    static var entityDescription: NSEntityDescription? {
-        return NSEntityDescription.entity(forEntityName: entityName, in: Core.shared.context)
-    }
-    
-    static var entityName: String {
-        return String(describing: self)
-    }
-    
-    func save() {
-        Core.shared.saveContext()
     }
     
 }

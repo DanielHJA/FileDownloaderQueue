@@ -8,16 +8,11 @@
 
 import UIKit
 
-class ViewController: BaseTableviewViewController<DownloadObject, DownloadTableViewCell> {
+class DownloadsViewController: BaseTableviewViewController<DownloadObject, DownloadTableViewCell> {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        items = MockData.mockDownloads
-        Core.shared.fetch(DownloadObject.self) { (objects) in
-            self.items = objects
-        }
-        
-        reload()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        fetchObjects()
     }
     
     override func registerCells() {
@@ -25,10 +20,17 @@ class ViewController: BaseTableviewViewController<DownloadObject, DownloadTableV
         tableView.register(DownloadTableViewCell.self, forCellReuseIdentifier: "DownloadTableViewCell")
     }
     
+    @objc override func fetchObjects() { 
+        let predicate: NSPredicate? = NSPredicate(format: "finished = %d", false)
+        Core.shared.fetch(DownloadObject.self, predicate: predicate) { (results) in
+            self.items = results
+        }
+        reload()
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90.0
     }
-
-
+    
 }
 

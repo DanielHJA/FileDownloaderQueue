@@ -2,11 +2,14 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="DownloadObject" representedClassName="DownloadObject" syncable="YES" codeGenerationType="class">
         <attribute name="downloadURL" attributeType="URI"/>
+        <attribute name="finished" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="isRunning" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="progress" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="DownloadObject" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="DownloadObject" positionX="-63" positionY="-18" width="128" height="148"/>
     </elements>
 </model>

@@ -14,15 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-//        for object in MockData.mockDownloads {
-//            Core.shared.create(for: DownloadObject.self) { (download) in
-//                download.name = object.name
-//                download.isRunning = false
-//                download.downloadURL = object.url
-//                download.progress = 0
-//                Core.shared.add(download)
-//            }
-//        }
+        Webservice<[Download]>.fetch(urlString: "http://demo6427581.mockable.io/") { (result) in
+            switch result {
+            case .success(let results):
+                Core.shared.convertDownloadsToCoreObjects(results) 
+            case .failure(_):
+                return
+            }
+        }
         
         return true
     }
