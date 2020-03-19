@@ -13,19 +13,37 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        NotificationCenter.default.addObserver(self, selector: #selector(fetchDownloadObjects), name: NSNotification.Name("FetchDownloadObjects"), object: nil)
+        return true
+    }
+
+    @objc private func fetchDownloadObjects() {
         
+        #if DEBUG
+        print("DEBUG")
+        
+        Core.shared.convertDownloadsToCoreObjects(MockData.mockDownloads)
+        NotificationCenter.post("DownloadDidFinish")
+
+        #endif
+        
+        #if RELEASE
+        print("RELEASE")
         Webservice<[Download]>.fetch(urlString: "http://demo6427581.mockable.io/") { (result) in
             switch result {
             case .success(let results):
-                Core.shared.convertDownloadsToCoreObjects(results) 
+                DispatchQueue.main.async {
+                    Core.shared.convertDownloadsToCoreObjects(results)
+                    NotificationCenter.post("DownloadDidFinish")
+                }
             case .failure(_):
                 return
             }
         }
         
-        return true
+        #endif
     }
-
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

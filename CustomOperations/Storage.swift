@@ -48,6 +48,22 @@ class Storage {
         return nil
     }
     
+    func deleteFileForObject(_ object: DownloadObject?) {
+        guard let url = urlForObject(object) else { return }
+        
+        do {
+            try manager.removeItem(at: url)
+        } catch {
+            print(error)
+        }
+    }
+    
+    func urlForObject(_ object: DownloadObject?) -> URL? {
+        guard let defaultDirectory = defaultDirectory else { return nil }
+        guard let name = object?.name, let type = object?.type else { return nil }
+        return defaultDirectory.appendingPathComponent("\(name).\(type)")
+    }
+    
     func dataForLocation(_ location: URL?) -> Data? {
         guard let location = location else { return nil }
         do {

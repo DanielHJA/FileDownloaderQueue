@@ -31,6 +31,32 @@
 		7B8F350D241B8E2500B2E95D /* DownloadOperationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F350C241B8E2500B2E95D /* DownloadOperationsManager.swift */; };
 		7B8F350F241B8E5100B2E95D /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F350E241B8E5100B2E95D /* FileDownloader.swift */; };
 		7B8F3511241BBBCD00B2E95D /* DownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F3510241BBBCD00B2E95D /* DownloadOperation.swift */; };
+		7B93CDDE24237F8D004F6EF7 /* CustomOperations.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F34D0241B77C700B2E95D /* CustomOperations.xcdatamodeld */; };
+		7B93CDDF24237F8D004F6EF7 /* FinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F0F102422292E001F0C41 /* FinishedViewController.swift */; };
+		7B93CDE024237F8D004F6EF7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F0F0E2422285C001F0C41 /* Extensions.swift */; };
+		7B93CDE124237F8D004F6EF7 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B89BE4E2420D0FC004BB3A0 /* Storage.swift */; };
+		7B93CDE224237F8D004F6EF7 /* DownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F3510241BBBCD00B2E95D /* DownloadOperation.swift */; };
+		7B93CDE324237F8D004F6EF7 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B89BE502420D1C3004BB3A0 /* Core.swift */; };
+		7B93CDE424237F8D004F6EF7 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F3504241B7AF500B2E95D /* Download.swift */; };
+		7B93CDE524237F8D004F6EF7 /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F34CB241B77C700B2E95D /* DownloadsViewController.swift */; };
+		7B93CDE624237F8D004F6EF7 /* DownloadOperationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F350C241B8E2500B2E95D /* DownloadOperationsManager.swift */; };
+		7B93CDE724237F8D004F6EF7 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F0F0C2422274A001F0C41 /* TabbarViewController.swift */; };
+		7B93CDE824237F8D004F6EF7 /* BaseTableviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F34FE241B79C600B2E95D /* BaseTableviewViewController.swift */; };
+		7B93CDE924237F8D004F6EF7 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F3508241B807900B2E95D /* MockData.swift */; };
+		7B93CDEA24237F8D004F6EF7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F350A241B82C700B2E95D /* Constants.swift */; };
+		7B93CDEB24237F8D004F6EF7 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F0F0A24220ED3001F0C41 /* Webservice.swift */; };
+		7B93CDEC24237F8D004F6EF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F34C7241B77C700B2E95D /* AppDelegate.swift */; };
+		7B93CDED24237F8D004F6EF7 /* FinishedDownloadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F0F1224222BD0001F0C41 /* FinishedDownloadTableViewCell.swift */; };
+		7B93CDEE24237F8D004F6EF7 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F3502241B7A5400B2E95D /* BaseTableViewCell.swift */; };
+		7B93CDEF24237F8D004F6EF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F34C9241B77C700B2E95D /* SceneDelegate.swift */; };
+		7B93CDF024237F8D004F6EF7 /* DownloadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F3500241B7A1300B2E95D /* DownloadTableViewCell.swift */; };
+		7B93CDF124237F8D004F6EF7 /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F350E241B8E5100B2E95D /* FileDownloader.swift */; };
+		7B93CDF424237F8D004F6EF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B8F34D5241B77C900B2E95D /* LaunchScreen.storyboard */; };
+		7B93CDF524237F8D004F6EF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B8F34D3241B77C900B2E95D /* Assets.xcassets */; };
+		7B93CDFD24238E7B004F6EF7 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B93CDFB24238E7B004F6EF7 /* ImageViewController.swift */; };
+		7B93CDFE24238E7B004F6EF7 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B93CDFC24238E7B004F6EF7 /* PDFViewController.swift */; };
+		7B93CDFF24239047004F6EF7 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B93CDFB24238E7B004F6EF7 /* ImageViewController.swift */; };
+		7B93CE0024239049004F6EF7 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B93CDFC24238E7B004F6EF7 /* PDFViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +84,7 @@
 		7B5F0F1224222BD0001F0C41 /* FinishedDownloadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedDownloadTableViewCell.swift; sourceTree = "<group>"; };
 		7B89BE4E2420D0FC004BB3A0 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		7B89BE502420D1C3004BB3A0 /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
-		7B8F34C4241B77C700B2E95D /* CustomOperations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomOperations.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B8F34C4241B77C700B2E95D /* CustomOperations_DEBUG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomOperations_DEBUG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8F34C7241B77C700B2E95D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B8F34C9241B77C700B2E95D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7B8F34CB241B77C700B2E95D /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +107,10 @@
 		7B8F350C241B8E2500B2E95D /* DownloadOperationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadOperationsManager.swift; sourceTree = "<group>"; };
 		7B8F350E241B8E5100B2E95D /* FileDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDownloader.swift; sourceTree = "<group>"; };
 		7B8F3510241BBBCD00B2E95D /* DownloadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadOperation.swift; sourceTree = "<group>"; };
+		7B93CDF924237F8D004F6EF7 /* CustomOperations RELEASE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CustomOperations RELEASE.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B93CDFA24237F8D004F6EF7 /* CustomOperations copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CustomOperations copy-Info.plist"; path = "/Users/danielhjartstrom/Desktop/CustomOperations/CustomOperations copy-Info.plist"; sourceTree = "<absolute>"; };
+		7B93CDFB24238E7B004F6EF7 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		7B93CDFC24238E7B004F6EF7 /* PDFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +135,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7B93CDF224237F8D004F6EF7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -115,15 +152,17 @@
 				7B8F34E0241B77C900B2E95D /* CustomOperationsTests */,
 				7B8F34EB241B77C900B2E95D /* CustomOperationsUITests */,
 				7B8F34C5241B77C700B2E95D /* Products */,
+				7B93CDFA24237F8D004F6EF7 /* CustomOperations copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
 		7B8F34C5241B77C700B2E95D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7B8F34C4241B77C700B2E95D /* CustomOperations.app */,
+				7B8F34C4241B77C700B2E95D /* CustomOperations_DEBUG.app */,
 				7B8F34DD241B77C900B2E95D /* CustomOperationsTests.xctest */,
 				7B8F34E8241B77C900B2E95D /* CustomOperationsUITests.xctest */,
+				7B93CDF924237F8D004F6EF7 /* CustomOperations RELEASE.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -138,6 +177,8 @@
 				7B8F350A241B82C700B2E95D /* Constants.swift */,
 				7B8F34C9241B77C700B2E95D /* SceneDelegate.swift */,
 				7B8F34CB241B77C700B2E95D /* DownloadsViewController.swift */,
+				7B93CDFB24238E7B004F6EF7 /* ImageViewController.swift */,
+				7B93CDFC24238E7B004F6EF7 /* PDFViewController.swift */,
 				7B8F34FE241B79C600B2E95D /* BaseTableviewViewController.swift */,
 				7B5F0F0E2422285C001F0C41 /* Extensions.swift */,
 				7B8F3500241B7A1300B2E95D /* DownloadTableViewCell.swift */,
@@ -179,9 +220,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7B8F34C3241B77C700B2E95D /* CustomOperations */ = {
+		7B8F34C3241B77C700B2E95D /* CustomOperations_DEBUG */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7B8F34F1241B77C900B2E95D /* Build configuration list for PBXNativeTarget "CustomOperations" */;
+			buildConfigurationList = 7B8F34F1241B77C900B2E95D /* Build configuration list for PBXNativeTarget "CustomOperations_DEBUG" */;
 			buildPhases = (
 				7B8F34C0241B77C700B2E95D /* Sources */,
 				7B8F34C1241B77C700B2E95D /* Frameworks */,
@@ -191,9 +232,9 @@
 			);
 			dependencies = (
 			);
-			name = CustomOperations;
+			name = CustomOperations_DEBUG;
 			productName = CustomOperations;
-			productReference = 7B8F34C4241B77C700B2E95D /* CustomOperations.app */;
+			productReference = 7B8F34C4241B77C700B2E95D /* CustomOperations_DEBUG.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7B8F34DC241B77C900B2E95D /* CustomOperationsTests */ = {
@@ -232,6 +273,23 @@
 			productReference = 7B8F34E8241B77C900B2E95D /* CustomOperationsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		7B93CDDC24237F8D004F6EF7 /* CustomOperations RELEASE */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B93CDF624237F8D004F6EF7 /* Build configuration list for PBXNativeTarget "CustomOperations RELEASE" */;
+			buildPhases = (
+				7B93CDDD24237F8D004F6EF7 /* Sources */,
+				7B93CDF224237F8D004F6EF7 /* Frameworks */,
+				7B93CDF324237F8D004F6EF7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CustomOperations RELEASE";
+			productName = CustomOperations;
+			productReference = 7B93CDF924237F8D004F6EF7 /* CustomOperations RELEASE.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -268,9 +326,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7B8F34C3241B77C700B2E95D /* CustomOperations */,
+				7B8F34C3241B77C700B2E95D /* CustomOperations_DEBUG */,
 				7B8F34DC241B77C900B2E95D /* CustomOperationsTests */,
 				7B8F34E7241B77C900B2E95D /* CustomOperationsUITests */,
+				7B93CDDC24237F8D004F6EF7 /* CustomOperations RELEASE */,
 			);
 		};
 /* End PBXProject section */
@@ -299,6 +358,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7B93CDF324237F8D004F6EF7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B93CDF424237F8D004F6EF7 /* LaunchScreen.storyboard in Resources */,
+				7B93CDF524237F8D004F6EF7 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -307,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B8F34D2241B77C700B2E95D /* CustomOperations.xcdatamodeld in Sources */,
+				7B93CDFE24238E7B004F6EF7 /* PDFViewController.swift in Sources */,
 				7B5F0F112422292F001F0C41 /* FinishedViewController.swift in Sources */,
 				7B5F0F0F2422285C001F0C41 /* Extensions.swift in Sources */,
 				7B89BE4F2420D0FC004BB3A0 /* Storage.swift in Sources */,
@@ -316,6 +385,7 @@
 				7B8F34CC241B77C700B2E95D /* DownloadsViewController.swift in Sources */,
 				7B8F350D241B8E2500B2E95D /* DownloadOperationsManager.swift in Sources */,
 				7B5F0F0D2422274A001F0C41 /* TabbarViewController.swift in Sources */,
+				7B93CDFD24238E7B004F6EF7 /* ImageViewController.swift in Sources */,
 				7B8F34FF241B79C600B2E95D /* BaseTableviewViewController.swift in Sources */,
 				7B8F3509241B807900B2E95D /* MockData.swift in Sources */,
 				7B8F350B241B82C700B2E95D /* Constants.swift in Sources */,
@@ -345,17 +415,46 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7B93CDDD24237F8D004F6EF7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B93CDDE24237F8D004F6EF7 /* CustomOperations.xcdatamodeld in Sources */,
+				7B93CE0024239049004F6EF7 /* PDFViewController.swift in Sources */,
+				7B93CDDF24237F8D004F6EF7 /* FinishedViewController.swift in Sources */,
+				7B93CDE024237F8D004F6EF7 /* Extensions.swift in Sources */,
+				7B93CDE124237F8D004F6EF7 /* Storage.swift in Sources */,
+				7B93CDE224237F8D004F6EF7 /* DownloadOperation.swift in Sources */,
+				7B93CDE324237F8D004F6EF7 /* Core.swift in Sources */,
+				7B93CDE424237F8D004F6EF7 /* Download.swift in Sources */,
+				7B93CDE524237F8D004F6EF7 /* DownloadsViewController.swift in Sources */,
+				7B93CDE624237F8D004F6EF7 /* DownloadOperationsManager.swift in Sources */,
+				7B93CDE724237F8D004F6EF7 /* TabbarViewController.swift in Sources */,
+				7B93CDFF24239047004F6EF7 /* ImageViewController.swift in Sources */,
+				7B93CDE824237F8D004F6EF7 /* BaseTableviewViewController.swift in Sources */,
+				7B93CDE924237F8D004F6EF7 /* MockData.swift in Sources */,
+				7B93CDEA24237F8D004F6EF7 /* Constants.swift in Sources */,
+				7B93CDEB24237F8D004F6EF7 /* Webservice.swift in Sources */,
+				7B93CDEC24237F8D004F6EF7 /* AppDelegate.swift in Sources */,
+				7B93CDED24237F8D004F6EF7 /* FinishedDownloadTableViewCell.swift in Sources */,
+				7B93CDEE24237F8D004F6EF7 /* BaseTableViewCell.swift in Sources */,
+				7B93CDEF24237F8D004F6EF7 /* SceneDelegate.swift in Sources */,
+				7B93CDF024237F8D004F6EF7 /* DownloadTableViewCell.swift in Sources */,
+				7B93CDF124237F8D004F6EF7 /* FileDownloader.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		7B8F34DF241B77C900B2E95D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7B8F34C3241B77C700B2E95D /* CustomOperations */;
+			target = 7B8F34C3241B77C700B2E95D /* CustomOperations_DEBUG */;
 			targetProxy = 7B8F34DE241B77C900B2E95D /* PBXContainerItemProxy */;
 		};
 		7B8F34EA241B77C900B2E95D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7B8F34C3241B77C700B2E95D /* CustomOperations */;
+			target = 7B8F34C3241B77C700B2E95D /* CustomOperations_DEBUG */;
 			targetProxy = 7B8F34E9241B77C900B2E95D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -497,6 +596,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.daniel.hjartstrom.CustomOperations;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -515,6 +615,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.daniel.hjartstrom.CustomOperations;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -606,6 +707,44 @@
 			};
 			name = Release;
 		};
+		7B93CDF724237F8D004F6EF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6ZL797GF7H;
+				INFOPLIST_FILE = CustomOperations/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_SWIFT_FLAGS = "-DRELEASE";
+				PRODUCT_BUNDLE_IDENTIFIER = com.daniel.hjartstrom.CustomOperations;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7B93CDF824237F8D004F6EF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6ZL797GF7H;
+				INFOPLIST_FILE = CustomOperations/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_SWIFT_FLAGS = "-DRELEASE";
+				PRODUCT_BUNDLE_IDENTIFIER = com.daniel.hjartstrom.CustomOperations;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -618,7 +757,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7B8F34F1241B77C900B2E95D /* Build configuration list for PBXNativeTarget "CustomOperations" */ = {
+		7B8F34F1241B77C900B2E95D /* Build configuration list for PBXNativeTarget "CustomOperations_DEBUG" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7B8F34F2241B77C900B2E95D /* Debug */,
@@ -641,6 +780,15 @@
 			buildConfigurations = (
 				7B8F34F8241B77C900B2E95D /* Debug */,
 				7B8F34F9241B77C900B2E95D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B93CDF624237F8D004F6EF7 /* Build configuration list for PBXNativeTarget "CustomOperations RELEASE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B93CDF724237F8D004F6EF7 /* Debug */,
+				7B93CDF824237F8D004F6EF7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

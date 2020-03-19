@@ -31,12 +31,15 @@ class BaseTableviewViewController<T: NSManagedObject, C: BaseTableViewCell<T>>: 
         super.viewDidLoad()
         registerCells()
         NotificationCenter.default.addObserver(self, selector: #selector(fetchObjects), name: NSNotification.Name("DownloadDidFinish"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name("RefreshTableView"), object: nil)
     }
     
-    @objc func fetchObjects() { }
+    @objc func fetchObjects() {}
     
-    func reload() {
-        tableView.reloadData()
+    @objc func reload() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     func registerCells() {
@@ -64,6 +67,11 @@ class BaseTableviewViewController<T: NSManagedObject, C: BaseTableViewCell<T>>: 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    @available(iOS 11.0, *)
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        return nil
     }
     
 }

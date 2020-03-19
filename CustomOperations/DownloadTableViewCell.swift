@@ -74,22 +74,30 @@ class DownloadTableViewCell: BaseTableViewCell<DownloadObject>, DownloadObjectDe
         self.object = object
         label.text = object.name
         progressView.setProgress(object.progress, animated: false)
-        downloadButton.isHidden = false
+        object.isRunning ? setPauseButton() : setDownloadButton()
     }
     
     @objc private func didPressDownloadButton() {
-        downloadButton.removeTarget(self, action: #selector(didPressDownloadButton), for: .touchUpInside)
-        downloadButton.addTarget(self, action: #selector(didPressPauseButton), for: .touchUpInside)
-        downloadButton.setTitle("Pause", for: .normal)
+        setPauseButton()
         configureDownloadTask()
         resumeDownloadTask()
     }
     
+    private func setPauseButton() {
+        downloadButton.removeTarget(self, action: #selector(didPressDownloadButton), for: .touchUpInside)
+        downloadButton.addTarget(self, action: #selector(didPressPauseButton), for: .touchUpInside)
+        downloadButton.setTitle("Pause", for: .normal)
+    }
+    
     @objc private func didPressPauseButton() {
+        setDownloadButton()
+        suspendDownloadTask()
+    }
+    
+    private func setDownloadButton() {
         downloadButton.removeTarget(self, action: #selector(didPressPauseButton), for: .touchUpInside)
         downloadButton.addTarget(self, action: #selector(didPressDownloadButton), for: .touchUpInside)
         downloadButton.setTitle("Download", for: .normal)
-        suspendDownloadTask()
     }
     
     private func configureDownloadTask() {

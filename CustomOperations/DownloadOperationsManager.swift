@@ -32,5 +32,9 @@ class DownloadOperationsManager: NSObject {
         guard let operation = operation else { return }
         operation.cancel()
     }
+    
+    func suspendAlloperations() {
+        queue.cancelAllOperations()
+    }
 
 }

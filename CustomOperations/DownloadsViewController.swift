@@ -12,7 +12,7 @@ class DownloadsViewController: BaseTableviewViewController<DownloadObject, Downl
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        fetchObjects()
+        NotificationCenter.post("FetchDownloadObjects")
     }
     
     override func registerCells() {
@@ -20,7 +20,7 @@ class DownloadsViewController: BaseTableviewViewController<DownloadObject, Downl
         tableView.register(DownloadTableViewCell.self, forCellReuseIdentifier: "DownloadTableViewCell")
     }
     
-    @objc override func fetchObjects() { 
+    @objc override func fetchObjects() {
         let predicate: NSPredicate? = NSPredicate(format: "finished = %d", false)
         Core.shared.fetch(DownloadObject.self, predicate: predicate) { (results) in
             self.items = results
@@ -34,3 +34,8 @@ class DownloadsViewController: BaseTableviewViewController<DownloadObject, Downl
     
 }
 
+extension NotificationCenter {
+    static func post(_ name: String) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: name), object: nil) 
+    }
+}

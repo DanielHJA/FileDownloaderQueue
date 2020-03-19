@@ -11,6 +11,7 @@ import UIKit
 enum FileType: String, Decodable {
     case zip
     case pdf
+    case jpg
 }
 
 protocol DownloadObjectDelegate: class {
@@ -65,9 +66,9 @@ class Download: Codable {
     
 }
 
-extension Download: FileDownloaderDelegate {
-    func updateProgress(_ progress: Float) {
-        self.progress = progress
-        delegate?.updateProgress(progress)
-    }
-}
+//extension Download: FileDownloaderDelegate {
+//    func updateProgress(_ progress: Float) {
+//        self.progress = progress
+//        delegate?.updateProgress(progress)
+//    }
+//}
